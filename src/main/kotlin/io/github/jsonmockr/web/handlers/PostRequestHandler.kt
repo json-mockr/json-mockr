@@ -7,14 +7,14 @@ import io.github.jsonmockr.Utils.generateRadomNumber
 import io.github.jsonmockr.Utils.genrerateRandomString
 import io.github.jsonmockr.Utils.isCollection
 import io.github.jsonmockr.configuration.IdType.Number
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.Route
 import io.github.jsonmockr.web.RequestValidator
 import org.springframework.stereotype.Component
 
 @Component
 class PostRequestHandler(
-    private val configuration: JsonMocaConfiguration,
+    private val configuration: JsonMockrConfiguration,
     private val validator: RequestValidator,
 ) {
     fun post(

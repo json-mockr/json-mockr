@@ -1,8 +1,8 @@
 package io.github.jsonmockr.generators
 
 import com.fasterxml.jackson.databind.node.ArrayNode
-import io.github.jsonmockr.Utils
+import net.datafaker.Faker
 
-class NumberGenerator(private val length: Int) : JsonMocaGenerator {
-    override fun generate(data: Map<String, ArrayNode?>): Any = Utils.generateRadomNumber(length)
+class NumberGenerator(private val length: Int, private val faker: Faker) : JsonMockrGenerator {
+    override fun generate(data: Map<String, ArrayNode?>): Any = faker.number().randomNumber(length, false)
 }

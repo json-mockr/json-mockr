@@ -7,7 +7,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import io.github.jsonmockr.Utils.DEFAULT_ID_SEPARATOR
 import io.github.jsonmockr.Utils.getAllPossiblePaths
 import io.github.jsonmockr.Utils.isCollection
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.ResourceNotFoundException
 import io.github.jsonmockr.configuration.Route
 import org.springframework.stereotype.Component
@@ -15,7 +15,7 @@ import org.springframework.util.AntPathMatcher
 
 @Component
 class GetRequestHandler(
-    private val configuration: JsonMocaConfiguration,
+    private val configuration: JsonMockrConfiguration,
     private val objectMapper: ObjectMapper,
 ) {
 
@@ -69,24 +69,13 @@ class GetRequestHandler(
                     }
                 }
 
-                val filterJsonNodeAsString: JsonNode = objectMapper.readValue<JsonNode>(
+                val filterAsString: String = objectMapper.readValue<JsonNode>(
                     objectMapper.writeValueAsString(mapOf(resource.idField to filter.value)),
-                ).get(resource.idField)
-
-                val filterJsonNodeAsNumber: JsonNode? = try {
-                    objectMapper.readValue<JsonNode>(
-                        objectMapper.writeValueAsString(mapOf(resource.idField to filter.value.toInt())),
-                    ).get(resource.idField)
-                } catch (e: NumberFormatException) {
-                    null
-                }
+                ).get(resource.idField).asText()
 
                 targetField?.let {
-                    targetField.equals(filterJsonNodeAsString) || targetField.equals(
-                        filterJsonNodeAsNumber,
-                    )
-                }
-                    ?: false
+                    targetField.asText().equals(filterAsString)
+                } ?: false
             }
 
             tmpDatabase[resource.name] = objectMapper.createArrayNode().addAll(filtered)

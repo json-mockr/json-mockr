@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.jsonmockr.Utils.isCollection
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.NoContentException
 import io.github.jsonmockr.configuration.Route
 import org.springframework.stereotype.Component
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component
 @Component
 class DeleteRequestHandler(
     private val getRequestHandler: GetRequestHandler,
-    private val configuration: JsonMocaConfiguration,
+    private val configuration: JsonMockrConfiguration,
     private val objectMapper: ObjectMapper,
 ) {
     fun delete(

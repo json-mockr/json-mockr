@@ -3,7 +3,7 @@ package io.github.jsonmockr.web
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.github.jsonmockr.configuration.Authorization
 import io.github.jsonmockr.configuration.InvalidRequestException
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.Route
 import io.github.jsonmockr.configuration.UnauthorizedException
 import io.github.jsonmockr.web.handlers.DeleteRequestHandler
@@ -25,7 +25,7 @@ class GlobalControllerTest {
     private val putRequestHandler: PutRequestHandler = mock(PutRequestHandler::class.java)
     private val postRequestHandler = mock(PostRequestHandler::class.java)
     private val deleteRequestHandler = mock(DeleteRequestHandler::class.java)
-    private val configuration = mock(JsonMocaConfiguration::class.java)
+    private val configuration = mock(JsonMockrConfiguration::class.java)
     private val httpServletRequest = mock(HttpServletRequest::class.java)
 
     private val globalController = GlobalController(

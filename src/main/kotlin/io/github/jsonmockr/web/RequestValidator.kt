@@ -5,12 +5,12 @@ import com.fasterxml.jackson.databind.node.JsonNodeType
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.jsonmockr.Utils
 import io.github.jsonmockr.configuration.InvalidRequestException
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.Resource
 import org.springframework.stereotype.Component
 
 @Component
-class RequestValidator(private val configuration: JsonMocaConfiguration) {
+class RequestValidator(private val configuration: JsonMockrConfiguration) {
 
     private val cache = mutableMapOf<String, Map<String, JsonNodeType>>()
     fun validateRequest(resource: Resource, body: ObjectNode) {

@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component
 import org.springframework.util.AntPathMatcher
 
 @Component
-class JsonMocaConfiguration(
+class JsonMockrConfiguration(
     @Value("\${json-mockr.config-file}")
     private val configurationFile: String,
     resourceLoader: ResourceLoader,

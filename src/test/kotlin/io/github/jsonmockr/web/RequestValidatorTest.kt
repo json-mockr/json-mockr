@@ -2,7 +2,7 @@ package io.github.jsonmockr.web
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.github.jsonmockr.configuration.InvalidRequestException
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.Resource
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -12,7 +12,7 @@ import org.mockito.Mockito.`when`
 
 class RequestValidatorTest {
 
-    private val configuration = mock(JsonMocaConfiguration::class.java)
+    private val configuration = mock(JsonMockrConfiguration::class.java)
     private val requestValidator = RequestValidator(configuration)
     private val objectMapper = ObjectMapper()
 

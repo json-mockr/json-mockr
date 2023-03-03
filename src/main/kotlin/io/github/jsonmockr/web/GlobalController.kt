@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.jsonmockr.configuration.Authorization.Basic
 import io.github.jsonmockr.configuration.Authorization.Bearer
 import io.github.jsonmockr.configuration.InvalidRequestException
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.Route
 import io.github.jsonmockr.configuration.UnauthorizedException
 import io.github.jsonmockr.web.handlers.DeleteRequestHandler
@@ -36,7 +36,7 @@ class GlobalController(
     private val postRequestHandler: PostRequestHandler,
     private val putRequestHandler: PutRequestHandler,
     private val deleteRequestHandler: DeleteRequestHandler,
-    private val configuration: JsonMocaConfiguration,
+    private val configuration: JsonMockrConfiguration,
 ) {
 
     @RequestMapping(

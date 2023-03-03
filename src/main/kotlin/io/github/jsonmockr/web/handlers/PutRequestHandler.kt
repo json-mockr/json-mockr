@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.jsonmockr.Utils.isCollection
 import io.github.jsonmockr.configuration.IdType.Number
-import io.github.jsonmockr.configuration.JsonMocaConfiguration
+import io.github.jsonmockr.configuration.JsonMockrConfiguration
 import io.github.jsonmockr.configuration.Route
 import io.github.jsonmockr.web.RequestValidator
 import org.springframework.stereotype.Component
@@ -13,7 +13,7 @@ import org.springframework.util.AntPathMatcher
 
 @Component
 class PutRequestHandler(
-    val configuration: JsonMocaConfiguration,
+    val configuration: JsonMockrConfiguration,
     val getRequestHandler: GetRequestHandler,
     val validator: RequestValidator,
     val objectMapper: ObjectMapper,
