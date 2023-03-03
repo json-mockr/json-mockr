@@ -1,0 +1,33 @@
+
+name: Ci
+
+on:
+
+  pull_request:
+    branches:
+      - main
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: JDK 17 setup
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "zulu"
+
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.8.2
+
+
+      - name: Build maven
+        run: ./mvnw -B clean package

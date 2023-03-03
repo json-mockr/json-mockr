@@ -1,0 +1,45 @@
+defaults:
+  authorization: None
+  envelope: items
+  id-field: id
+  id-type: String
+  id-length: 6
+  total-elements: count
+  strict-validation: true
+  create-on-put: true
+
+routes:
+  - path: "/orders"
+  - path: "/users"
+  - path: "/users/{id}"
+  - path: "/users/{userId}/orders"
+  - path: "/users/{userId}/orders/{orderId}"
+
+resources:
+  - name: "users"
+    optional-fields: [age]
+    generator:
+      name: user-gen
+      quantity: 100
+  - name: "orders"
+    generator:
+      name: order-gen
+      quantity: 100
+
+generators:
+  - name: "user-gen"
+    spec: >
+      {  
+        "id": "#number(5)",
+        "name": "#text(5)",
+        "email": "#text()",
+        "age": "#text(99)",
+        "price": "#text(99)"
+      }
+  - name: "order-gen"
+    spec: >
+      {  
+        "id": "#text(5)",
+        "userId": "#refs('users','id')",
+        "number": "#text(99)"
+      }
