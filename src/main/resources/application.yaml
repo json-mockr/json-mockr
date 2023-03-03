@@ -1,0 +1,2 @@
+json-mockr:
+  config-file: classpath:config.yaml
