@@ -4,6 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ArrayNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.module.kotlin.readValue
+import io.github.jsonmockr.generators.model.EmailGenerator
+import io.github.jsonmockr.generators.model.FullNameGenerator
+import io.github.jsonmockr.generators.model.NameGenerator
+import io.github.jsonmockr.generators.model.NumberGenerator
+import io.github.jsonmockr.generators.model.PriceGenerator
+import io.github.jsonmockr.generators.model.ReferenceGenerator
+import io.github.jsonmockr.generators.model.TextGenerator
 import net.datafaker.Faker
 import org.springframework.stereotype.Component
 import javax.script.ScriptEngine

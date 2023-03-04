@@ -1,10 +1,10 @@
 package io.github.jsonmockr.web.handlers
 
-import io.github.jsonmockr.configuration.InvalidRequestException
-import io.github.jsonmockr.configuration.NoContentException
-import io.github.jsonmockr.configuration.ResourceNotFoundException
-import io.github.jsonmockr.configuration.RouteNotFoundException
-import io.github.jsonmockr.configuration.UnauthorizedException
+import io.github.jsonmockr.configuration.model.InvalidRequestException
+import io.github.jsonmockr.web.exceptions.NoContentException
+import io.github.jsonmockr.web.exceptions.ResourceNotFoundException
+import io.github.jsonmockr.web.exceptions.RouteNotFoundException
+import io.github.jsonmockr.web.exceptions.UnauthorizedException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice

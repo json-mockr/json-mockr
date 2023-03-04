@@ -1,9 +1,9 @@
 package io.github.jsonmockr.web
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.github.jsonmockr.configuration.InvalidRequestException
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.Resource
+import io.github.jsonmockr.configuration.model.InvalidRequestException
+import io.github.jsonmockr.configuration.model.Resource
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

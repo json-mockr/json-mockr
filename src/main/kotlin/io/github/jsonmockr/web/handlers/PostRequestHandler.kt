@@ -6,9 +6,9 @@ import io.github.jsonmockr.Utils.DEFAULT_ID_LENGTH
 import io.github.jsonmockr.Utils.generateRadomNumber
 import io.github.jsonmockr.Utils.genrerateRandomString
 import io.github.jsonmockr.Utils.isCollection
-import io.github.jsonmockr.configuration.IdType.Number
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.Route
+import io.github.jsonmockr.configuration.model.IdType.Number
+import io.github.jsonmockr.configuration.model.Route
 import io.github.jsonmockr.web.RequestValidator
 import org.springframework.stereotype.Component
 

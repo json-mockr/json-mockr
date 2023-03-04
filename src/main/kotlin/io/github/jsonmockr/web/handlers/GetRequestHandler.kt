@@ -8,8 +8,8 @@ import io.github.jsonmockr.Utils.DEFAULT_ID_SEPARATOR
 import io.github.jsonmockr.Utils.getAllPossiblePaths
 import io.github.jsonmockr.Utils.isCollection
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.ResourceNotFoundException
-import io.github.jsonmockr.configuration.Route
+import io.github.jsonmockr.configuration.model.Route
+import io.github.jsonmockr.web.exceptions.ResourceNotFoundException
 import org.springframework.stereotype.Component
 import org.springframework.util.AntPathMatcher
 
