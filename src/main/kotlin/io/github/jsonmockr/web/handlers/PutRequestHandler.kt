@@ -4,9 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.jsonmockr.Utils.isCollection
-import io.github.jsonmockr.configuration.IdType.Number
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.Route
+import io.github.jsonmockr.configuration.model.IdType.Number
+import io.github.jsonmockr.configuration.model.Route
 import io.github.jsonmockr.web.RequestValidator
 import org.springframework.stereotype.Component
 import org.springframework.util.AntPathMatcher

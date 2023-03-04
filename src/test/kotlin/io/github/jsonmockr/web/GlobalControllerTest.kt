@@ -1,11 +1,11 @@
 package io.github.jsonmockr.web
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.github.jsonmockr.configuration.Authorization
-import io.github.jsonmockr.configuration.InvalidRequestException
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.Route
-import io.github.jsonmockr.configuration.UnauthorizedException
+import io.github.jsonmockr.configuration.model.Authorization
+import io.github.jsonmockr.configuration.model.InvalidRequestException
+import io.github.jsonmockr.configuration.model.Route
+import io.github.jsonmockr.web.exceptions.UnauthorizedException
 import io.github.jsonmockr.web.handlers.DeleteRequestHandler
 import io.github.jsonmockr.web.handlers.GetRequestHandler
 import io.github.jsonmockr.web.handlers.PostRequestHandler

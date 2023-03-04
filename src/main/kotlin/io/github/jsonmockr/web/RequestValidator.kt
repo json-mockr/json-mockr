@@ -4,9 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.JsonNodeType
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.jsonmockr.Utils
-import io.github.jsonmockr.configuration.InvalidRequestException
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.Resource
+import io.github.jsonmockr.configuration.model.InvalidRequestException
+import io.github.jsonmockr.configuration.model.Resource
 import org.springframework.stereotype.Component
 
 @Component

@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.jsonmockr.Utils.isCollection
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.NoContentException
-import io.github.jsonmockr.configuration.Route
+import io.github.jsonmockr.configuration.model.Route
+import io.github.jsonmockr.web.exceptions.NoContentException
 import org.springframework.stereotype.Component
 
 @Component

@@ -1,6 +1,7 @@
-package io.github.jsonmockr.generators
+package io.github.jsonmockr.generators.model
 
 import com.fasterxml.jackson.databind.node.ArrayNode
+import io.github.jsonmockr.generators.JsonMockrGenerator
 import net.datafaker.Faker
 
 class NameGenerator(private val faker: Faker) : JsonMockrGenerator {

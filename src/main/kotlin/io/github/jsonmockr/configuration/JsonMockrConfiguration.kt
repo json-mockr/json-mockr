@@ -7,9 +7,15 @@ import com.fasterxml.jackson.databind.node.ArrayNode
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.github.jsonmockr.Utils
 import io.github.jsonmockr.Utils.DEFAULT_ID
-import io.github.jsonmockr.configuration.Authorization.None
+import io.github.jsonmockr.configuration.model.Authorization.None
+import io.github.jsonmockr.configuration.model.Defaults
+import io.github.jsonmockr.configuration.model.Generator
+import io.github.jsonmockr.configuration.model.IdType
+import io.github.jsonmockr.configuration.model.MockConfiguration
+import io.github.jsonmockr.configuration.model.Resource
 import io.github.jsonmockr.generators.GeneratorParser
-import io.github.jsonmockr.generators.ObjectGenerator
+import io.github.jsonmockr.generators.model.ObjectGenerator
+import io.github.jsonmockr.web.exceptions.RouteNotFoundException
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ResourceLoader
@@ -65,9 +71,16 @@ class JsonMockrConfiguration(
         database[resource] = data
     }
 
-    fun getResourceData(resource: String): ArrayNode {
-        return database[resource] ?: jsonMapper.createArrayNode()
-    }
+    fun getResourceData(resource: String): ArrayNode =
+        database[resource] ?: jsonMapper.createArrayNode()
+
+    fun getRoutes() = configuration.routes
+
+    fun getResources() = configuration.resources
+
+    fun getDefaults(): Defaults? = configuration.defaults ?: Defaults()
+
+    fun getGenerators(): List<Generator> = configuration.generators
 
     fun getRouteFromPath(path: String) =
         configuration.routes.find {

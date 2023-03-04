@@ -2,12 +2,12 @@ package io.github.jsonmockr.web
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
-import io.github.jsonmockr.configuration.Authorization.Basic
-import io.github.jsonmockr.configuration.Authorization.Bearer
-import io.github.jsonmockr.configuration.InvalidRequestException
 import io.github.jsonmockr.configuration.JsonMockrConfiguration
-import io.github.jsonmockr.configuration.Route
-import io.github.jsonmockr.configuration.UnauthorizedException
+import io.github.jsonmockr.configuration.model.Authorization.Basic
+import io.github.jsonmockr.configuration.model.Authorization.Bearer
+import io.github.jsonmockr.configuration.model.InvalidRequestException
+import io.github.jsonmockr.configuration.model.Route
+import io.github.jsonmockr.web.exceptions.UnauthorizedException
 import io.github.jsonmockr.web.handlers.DeleteRequestHandler
 import io.github.jsonmockr.web.handlers.GetRequestHandler
 import io.github.jsonmockr.web.handlers.PostRequestHandler
@@ -23,6 +23,7 @@ import org.springframework.http.HttpStatus.NO_CONTENT
 import org.springframework.http.HttpStatus.OK
 import org.springframework.http.ResponseEntity
 import org.springframework.util.MimeTypeUtils
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestMapping
@@ -30,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("**")
+@RequestMapping("/{path:^.*(?!mockr-debug)}/**")
 class GlobalController(
     private val getRequestHandler: GetRequestHandler,
     private val postRequestHandler: PostRequestHandler,
@@ -48,10 +49,11 @@ class GlobalController(
         @RequestBody
         body: ObjectNode?,
         @RequestHeader("Authorization") authorization: String?,
+        @PathVariable path: String? = null
     ): ResponseEntity<JsonNode> {
-        val path = request.servletPath.trimEnd('/')
+        val requestPath = request.servletPath.trimEnd('/')
         val httpMethod = HttpMethod.valueOf(request.method.uppercase())
-        val route = configuration.getRouteFromPath(path)
+        val route = configuration.getRouteFromPath(requestPath)
 
         when (route.authorization) {
             Bearer -> authorization?.startsWith("${Bearer.name} ").takeIf { it == true }
@@ -61,7 +63,7 @@ class GlobalController(
             else -> {}
         }
 
-        return handleRequest(route, path, httpMethod, body)
+        return handleRequest(route, requestPath, httpMethod, body)
     }
 
     private fun handleRequest(
