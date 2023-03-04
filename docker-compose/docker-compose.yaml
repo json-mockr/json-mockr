@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  json-mockr:
+    build: ../
+    environment:
+      SERVER_PORT: 8888
+      JSON_MOCKR_CONFIG_FILE: "file:/app/mockr-config/config.yaml"
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./mockr-config:/app/mockr-config
+
+
