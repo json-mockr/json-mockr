@@ -19,7 +19,7 @@
         <gson.version>2.10.1</gson.version>
         <spotless.version>2.34.0</spotless.version>
         <mockito.version>4.3.1</mockito.version>
-        <karate.version>1.4.0.RC3</karate.version>
+        <karate.version>1.4.0</karate.version>
         <exec.plugin.version>1.6.0</exec.plugin.version>
     </properties>
     <dependencies>
